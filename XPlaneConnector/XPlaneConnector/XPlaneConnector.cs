@@ -64,7 +64,9 @@ namespace XPlaneConnector
             client = new UdpClient();
             client.Connect(XPlaneEP.Address, XPlaneEP.Port);
 
-            server = new UdpClient(LocalEP);
+            server = new UdpClient();
+            server.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            server.Client.Bind(LocalEP);
 
             ts = new CancellationTokenSource();
             var token = ts.Token;
