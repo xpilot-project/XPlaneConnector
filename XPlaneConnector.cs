@@ -145,13 +145,13 @@ namespace XPlaneConnector
                             if (dr.Update(id, value))
                                 OnDataRefReceived?.Invoke(dr);
                     }
-                    catch (ArgumentException ex)
+                    catch (ArgumentException)
                     {
 
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        var error = ex.Message;
+
                     }
                 }
             }
